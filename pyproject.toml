@@ -3,13 +3,13 @@ authors = [{name = "Alim Abrekov", email = "alimabrekov@outlook.com"}]
 dependencies = [
   "alembic>=1.13.1",
   "sqlalchemy>=2.0.29",
-  "psycopg==3.1.18",
+  "psycopg>=3.1.18",
   "psycopg-binary>=3.1.18",
   "pydantic>=2.6.4",
   "fastapi>=0.110.1",
   "dishka>=1.0.0",
   "uvicorn>=0.29.0",
-  "gunicorn==21.2.0",
+  "gunicorn>=21.2.0",
 ]
 description = "Python backend application template following Uncle Bob's Clean Architecture principles."
 name = "python-template"
