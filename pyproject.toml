@@ -1,0 +1,40 @@
+[project]
+authors = [{name = "Alim Abrekov", email = "alimabrekov@outlook.com"}]
+dependencies = [
+  "alembic>=1.13.1",
+  "sqlalchemy>=2.0.29",
+  "psycopg==3.1.18",
+  "psycopg-binary>=3.1.18",
+  "pydantic>=2.6.4",
+  "fastapi>=0.110.1",
+  "dishka>=1.0.0",
+  "uvicorn>=0.29.0",
+  "gunicorn==21.2.0",
+]
+description = "Python backend application template following Uncle Bob's Clean Architecture principles."
+name = "python-template"
+requires-python = ">=3.11.0"
+version = "0.0.1"
+
+[project.optional-dependencies]
+lint = [
+  "black>=24.3.0",
+  "isort>=5.13.2",
+  "mypy>=1.9.0",
+]
+testing = [
+  "pytest>=8.1.1",
+  "pytest-asyncio>=0.23.6",
+  "httpx>=0.27.0",
+]
+
+[tool.pytest.init_options]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+]
+pythonpath = [
+  "src",
+]
+testpaths = [
+  "tests",
+]

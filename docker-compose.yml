@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  web_api:
+    build: .
+    command: 
+      - "gunicorn"
+      - "-c"
+      - "conf/gunicorn.conf.py"
+      - "app.main.web_api:create_app()"
+    ports:
+      - "8002:8000"
+    environment:
+      - "DATABASE_URI=postgresql+psycopg://db_username:db_password@postgres/db_name"
+    depends_on:
+      - migrations
+  
+  migrations:
+    build: .
+    command: 
+      - "sh"
+      - "-c"
+      - "alembic -c conf/alembic.ini upgrade head"
+    environment:
+      - "DATABASE_URI=postgresql+psycopg://db_username:db_password@postgres/db_name"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:12.1-alpine
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data/"
+    environment:
+      - "POSTGRES_USER=db_username"
+      - "POSTGRES_PASSWORD=db_password"
+      - "POSTGRES_DB=db_name"
+
+volumes:
+  postgres_data:
