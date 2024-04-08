@@ -28,7 +28,7 @@ class SqlalchemyProvider(Provider):
             bind=engine, expire_on_commit=False, class_=AsyncSession
         )
 
-    @provide(scope=Scope.APP, provides=AsyncSession)
+    @provide(scope=Scope.REQUEST, provides=AsyncSession)
     async def provide_session(
         self, sessionmaker: async_sessionmaker[AsyncSession]
     ) -> AsyncIterable[AsyncSession]:
