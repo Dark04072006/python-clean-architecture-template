@@ -26,6 +26,7 @@ lint.ignore = [
    "SLF001",
    "COM812",
    "ISC001",
+   "S101",
 ]
 
 [lint.isort]

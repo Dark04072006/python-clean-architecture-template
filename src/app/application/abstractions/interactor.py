@@ -1,9 +1,9 @@
-from typing import Generic, Protocol, TypeVar
+from typing import Protocol, TypeVar
 
-Request = TypeVar("Request", contravariant=True)
-Response = TypeVar("Response", covariant=True)
+Request_contra = TypeVar("Request_contra", contravariant=True)
+Response_co = TypeVar("Response_co", covariant=True)
 
 
-class Interactor(Generic[Request, Response], Protocol):
-    async def __call__(self, request: Request) -> Response:
+class Interactor(Protocol[Request_contra, Response_co]):
+    async def __call__(self, request: Request_contra) -> Response_co:
         raise NotImplementedError

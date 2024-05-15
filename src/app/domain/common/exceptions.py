@@ -1,4 +1,4 @@
-class DomainException(Exception):
+class DomainError(Exception):
     """Base class for exceptions in this module."""
 
     def __init__(self, message: str) -> None:
@@ -6,5 +6,5 @@ class DomainException(Exception):
         self.message = message
 
 
-class DomainValidationError(DomainException):
+class DomainValidationError(DomainError):
     """Exception for domain validation errors"""
