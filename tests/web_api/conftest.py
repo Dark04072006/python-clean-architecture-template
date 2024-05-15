@@ -3,6 +3,7 @@ from typing import Any, cast
 
 import httpx
 import pytest_asyncio
+
 from app.main.web_api import create_app
 
 _Message = dict[str, Any]
