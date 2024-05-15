@@ -3,7 +3,7 @@ from functools import partial
 from dishka.integrations.fastapi import DishkaRoute, setup_dishka
 from fastapi import APIRouter, FastAPI
 
-from app.infrastructure.di.main import container_factory
+from app.main.di.main import container_factory
 from app.presentation.web_api.exc_handlers import init_exception_handlers
 from app.presentation.web_api.routers import health_check_router
 
